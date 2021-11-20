@@ -4,8 +4,11 @@ body {
   padding: 0;
   margin: 0;
   font-family: Poppins, sans-serif;
+  overflow-x: hidden;
 }
-
+.pointer:hover {
+  cursor: pointer;
+}
 a {
   color: inherit;
   text-decoration: none;

@@ -1,85 +1,88 @@
-import { Box, Flex, HStack, VStack, Text, Center } from "@chakra-ui/layout";
-import { Button } from "@chakra-ui/react";
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/tabs";
-import React from "react";
-import { AiOutlineUser } from "react-icons/ai";
-import { HiOutlineLocationMarker } from "react-icons/hi";
-import SwipeSidebarCard from "../src/components/SwipeSidebarCard";
-import TinderCard from "react-tinder-card";
-import {useState, useRef, useMemo} from 'react';
-import Swiper from "../src/components/Swiper";
+import { Box, Flex, HStack, VStack, Text, Center } from '@chakra-ui/layout'
+import { Button } from '@chakra-ui/react'
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/tabs'
+import React from 'react'
+import { AiOutlineUser } from 'react-icons/ai'
+import { HiOutlineLocationMarker } from 'react-icons/hi'
+import SwipeSidebarCard from '../src/components/SwipeSidebarCard'
+import TinderCard from 'react-tinder-card'
+import { useState, useRef, useMemo } from 'react'
+import Swiper from '../src/components/Swiper'
 
 const mockData = [
     {
-        title: "Muzeum powstańców śląskich",
-        desc: "Occaecat exercitation tempor do cupidatat anim voluptate elit labore eiusmod ullamco",
-        img: "https://images.pexels.com/photos/5845467/pexels-photo-5845467.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        tags: ["muzeum", "historia"],
+        title: 'Muzeum powstańców śląskich',
+        desc: 'Occaecat exercitation tempor do cupidatat anim voluptate elit labore eiusmod ullamco',
+        img: 'https://images.pexels.com/photos/5845467/pexels-photo-5845467.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        tags: ['muzeum', 'historia'],
     },
     {
-        title: "Koncert jubileuszowy Eweliny Lisowskiej",
-        desc: "Occaecat exercitation tempor do cupidatat anim voluptate elit labore eiusmod ullamco",
-        tags: ["muzyka", "pop"],
-        img: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        title: 'Koncert jubileuszowy Eweliny Lisowskiej',
+        desc: 'Occaecat exercitation tempor do cupidatat anim voluptate elit labore eiusmod ullamco',
+        tags: ['muzyka', 'pop'],
+        img: 'https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     },
     {
-        title: "Pijalnia wódki i piwa",
-        desc: "Occaecat exercitation tempor do cupidatat anim voluptate elit labore eiusmod ullamco",
-        tags: ["piwo", "imprezy", "lokalne specjały"],
-        img: "https://images.pexels.com/photos/331107/pexels-photo-331107.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        title: 'Pijalnia wódki i piwa',
+        desc: 'Occaecat exercitation tempor do cupidatat anim voluptate elit labore eiusmod ullamco',
+        tags: ['piwo', 'imprezy', 'lokalne specjały'],
+        img: 'https://images.pexels.com/photos/331107/pexels-photo-331107.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
     },
-];
+]
 
 const SwipePage = () => {
     const [currentIndex, setCurrentIndex] = useState(mockData.length - 1)
     const [lastDirection, setLastDirection] = useState()
     // used for outOfFrame closure
     const currentIndexRef = useRef(currentIndex)
-  
+
     const childRefs = useMemo(
-      () =>
-        Array(mockData.length)
-          .fill(0)
-          .map((i) => React.createRef()),
-      []
+        () =>
+            Array(mockData.length)
+                .fill(0)
+                .map((i) => React.createRef()),
+        []
     )
-  
+
     const updateCurrentIndex = (val) => {
-      setCurrentIndex(val)
-      currentIndexRef.current = val
+        setCurrentIndex(val)
+        currentIndexRef.current = val
     }
-  
+
     const canGoBack = currentIndex < mockData.length - 1
-  
+
     const canSwipe = currentIndex >= 0
-  
+
     // set last direction and decrease current index
     const swiped = (direction, nameToDelete, index) => {
-      setLastDirection(direction)
-      updateCurrentIndex(index - 1)
+        setLastDirection(direction)
+        updateCurrentIndex(index - 1)
     }
-  
+
     const outOfFrame = (name, idx) => {
-      console.log(`${name} (${idx}) left the screen!`, currentIndexRef.current)
-      // handle the case in which go back is pressed before card goes outOfFrame
-      currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
-      // TODO: when quickly swipe and restore multiple times the same card,
-      // it happens multiple outOfFrame events are queued and the card disappear
-      // during latest swipes. Only the last outOfFrame event should be considered valid
+        console.log(
+            `${name} (${idx}) left the screen!`,
+            currentIndexRef.current
+        )
+        // handle the case in which go back is pressed before card goes outOfFrame
+        currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
+        // TODO: when quickly swipe and restore multiple times the same card,
+        // it happens multiple outOfFrame events are queued and the card disappear
+        // during latest swipes. Only the last outOfFrame event should be considered valid
     }
-  
+
     const swipe = async (dir) => {
-      if (canSwipe && currentIndex < mockData.length) {
-        await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
-      }
+        if (canSwipe && currentIndex < mockData.length) {
+            await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
+        }
     }
-  
+
     // increase current index and show card
     const goBack = async () => {
-      if (!canGoBack) return
-      const newIndex = currentIndex + 1
-      updateCurrentIndex(newIndex)
-      await childRefs[newIndex].current.restoreCard()
+        if (!canGoBack) return
+        const newIndex = currentIndex + 1
+        updateCurrentIndex(newIndex)
+        await childRefs[newIndex].current.restoreCard()
     }
 
     return (
@@ -104,7 +107,7 @@ const SwipePage = () => {
                             <AiOutlineUser />
                         </Flex>
                         <Text fontWeight="semibold" color="white">
-                            Maciej Wiatr
+                            Paweł
                         </Text>
                     </HStack>
                     <HStack
@@ -140,7 +143,7 @@ const SwipePage = () => {
                                             img={img}
                                             tags={tags}
                                         />
-                                    );
+                                    )
                                 })}
                             </VStack>
                         </TabPanel>
@@ -163,7 +166,7 @@ const SwipePage = () => {
                                                 img={img}
                                                 tags={tags}
                                             />
-                                        );
+                                        )
                                     })}
                             </VStack>
                         </TabPanel>
@@ -186,7 +189,7 @@ const SwipePage = () => {
                         h="60vh"
                         alignItems="center"
                     >
-                            <Swiper/>
+                        <Swiper />
                     </Flex>
                     <Flex
                         justifyContent="center"
@@ -200,8 +203,8 @@ const SwipePage = () => {
                             bgColor="black"
                             color="white"
                             size="lg"
-                            _hover={{ bgColor: "#303030" }}
-                            _focus={{ bgColor: "#404040" }}
+                            _hover={{ bgColor: '#303030' }}
+                            _focus={{ bgColor: '#404040' }}
                         >
                             Atrakcje i trasy
                         </Button>
@@ -218,7 +221,7 @@ const SwipePage = () => {
                 </VStack>
             </Flex>
         </HStack>
-    );
-};
+    )
+}
 
-export default SwipePage;
+export default SwipePage

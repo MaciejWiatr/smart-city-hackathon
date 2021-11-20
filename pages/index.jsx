@@ -12,22 +12,24 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Header } from '../src/components/header.tsx'
 import theme from '../src/theme'
+import { useRouter } from 'next/router'
 
 export default function Home() {
+    const router = useRouter()
     return (
         <Stack pl={1} pr={1}>
             <Header bgImage="bg1.png">
                 <Heading
                     pb="3"
-                    maxWidth="500"
+                    maxWidth="700"
                     width="60vw"
-                    fontSize="2.2rem"
+                    fontSize="35"
                     textAlign="left"
                 >
                     Cześć, jak masz na imię?
                 </Heading>
                 <Input
-                    maxWidth="500"
+                    maxWidth="700"
                     width="60vw"
                     color="black"
                     variant="outline"
@@ -38,10 +40,10 @@ export default function Home() {
                 ></Input>
             </Header>
             <Center pt="2">
-                <Stack maxWidth="500">
+                <Stack maxWidth="700">
                     <Heading
+                        maxWidth="700"
                         width="60vw"
-                        maxWidth="600"
                         fontWeight="600"
                         pt="5"
                         pb="5"
@@ -63,6 +65,9 @@ export default function Home() {
                             bgColor="black"
                             color="white"
                             size="lg"
+                            onClick={() => {
+                                router.push('/categories')
+                            }}
                         >
                             Zatwierdz
                         </Button>
