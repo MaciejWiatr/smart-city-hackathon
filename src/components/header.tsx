@@ -1,5 +1,5 @@
 import { Stack, HStack, VStack, Center } from '@chakra-ui/react'
-import theme from '../src/theme'
+import theme from '../theme'
 export const Header = (props) => {
   return (
     <Center
@@ -16,7 +16,7 @@ export const Header = (props) => {
           width: '100%',
           height: '35vh',
           padding: '15rem 2rem 7rem 2rem',
-          backgroundImage: 'url(bg1.png)',
+          backgroundImage: `url(${props.bgImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           zIndex: 1,
