@@ -1,4 +1,5 @@
 import { Stack, HStack, VStack, Center } from '@chakra-ui/react'
+import theme from '../src/theme'
 export const Header = (props) => {
   return (
     <Center
@@ -6,7 +7,7 @@ export const Header = (props) => {
       height="35vh"
       color="white"
       p="15rem 2rem 7rem 2rem"
-      bgColor="#00FFA3"
+      bgColor={theme.overlayColor}
       overflow="hidden"
     >
       <div
