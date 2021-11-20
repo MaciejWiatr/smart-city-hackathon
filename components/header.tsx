@@ -5,7 +5,7 @@ export const Header = (props) => {
       width="100vw"
       height="35vh"
       color="white"
-      p="10rem 2rem 2rem 2rem"
+      p="15rem 2rem 7rem 2rem"
       bgColor="#00FFA3"
       overflow="hidden"
     >
@@ -14,7 +14,7 @@ export const Header = (props) => {
           position: 'absolute',
           width: '100%',
           height: '35vh',
-          padding: '10rem 2rem 2rem 2rem',
+          padding: '15rem 2rem 7rem 2rem',
           backgroundImage: 'url(bg1.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
