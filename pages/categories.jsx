@@ -50,7 +50,7 @@ const CategoriesPage = () => {
                     <Stack maxWidth="700" width="60vw">
                         <Grid templateColumns="repeat(2, 4fr)" gap={6}>
                             <Card
-                                bgImage="cardBg1.png"
+                                bgImage="his.jpg"
                                 header="Historia"
                                 text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                             />
@@ -60,22 +60,22 @@ const CategoriesPage = () => {
                                 text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                             />
                             <Card
-                                bgImage="cardBg1.png"
+                                bgImage="piwo.jpg"
                                 header="Piwo"
                                 text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                             />
                             <Card
-                                bgImage="cardBg1.png"
+                                bgImage="auto.jpg"
                                 header="Motoryzacja"
                                 text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                             />
                             <Card
-                                bgImage="cardBg1.png"
+                                bgImage="sztuka.jpg"
                                 header="Sztuka"
                                 text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                             />
                             <Card
-                                bgImage="cardBg1.png"
+                                bgImage="park.jpg"
                                 header="Natura"
                                 text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                             />

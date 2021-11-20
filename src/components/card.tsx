@@ -72,6 +72,8 @@ export const OfferCard = (props) => {
             bgImage={props.bgImage}
             className="pointer"
             onClick={props.onClick}
+            bgPos="center"
+            bgSize="cover"
         >
             <Stack direction="column">
                 <Heading pt="50" width="100%" fontSize="20" color="white">
