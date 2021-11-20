@@ -28,6 +28,7 @@ export default function Home() {
           bgColor="white"
         ></Input>
       </Header>
+      
     </Stack>
   )
 }
