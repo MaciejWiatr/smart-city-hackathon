@@ -1,4 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### Tourder
+
+Tourder is a travel app prototype created for a smart city hackathon in Kraków, designed to simplify city exploration. It works like a “Tinder for tours”: visitors swipe right or left on local attractions and events, and the app generates a personalized travel plan based on their choices. Over time, Tourder learns from each user’s preferences to better match future recommendations.
+
+Whether discovering popular sights or hidden gems, Tourder helps tourists experience Kraków and other cities in a way that suits their tastes.
+![image](https://github.com/user-attachments/assets/0cb453d1-5a1d-4e7e-99ef-02297fc44e29)
+![image](https://github.com/user-attachments/assets/e640a907-1a5a-44f0-aa75-a931e457527d)
+![image](https://github.com/user-attachments/assets/0e982244-d785-4221-bf3d-b2d1516b1c93)
+![image](https://github.com/user-attachments/assets/86809f0d-80b3-4c79-ad43-2eb5e40fd471)
+![image](https://github.com/user-attachments/assets/349ae82a-a7d4-41a0-b0b5-873cb1871d49)
 
 ## Getting Started
 
@@ -11,24 +20,3 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
