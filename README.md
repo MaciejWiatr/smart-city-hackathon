@@ -1,4 +1,4 @@
-Tourder
+### Tourder
 
 Tourder is a travel app prototype created for a smart city hackathon in Kraków, designed to simplify city exploration. It works like a “Tinder for tours”: visitors swipe right or left on local attractions and events, and the app generates a personalized travel plan based on their choices. Over time, Tourder learns from each user’s preferences to better match future recommendations.
 
